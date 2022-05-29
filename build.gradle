@@ -15,6 +15,7 @@ dependencies {
             "com.codeborne:selenide:6.4.0", // selenide СЕЛЕНИД ДОЛЖЕН БЫТЬ ВВЕРХУ!
             "org.junit.jupiter:junit-jupiter:5.8.2", // без API полный набор
             "org.slf4j:slf4j-simple:1.7.36", // логирование ( чтобы убрать ошибку)
+            "io.qameta.allure:allure-selenide:2.18.1" //
             )
 }
 
