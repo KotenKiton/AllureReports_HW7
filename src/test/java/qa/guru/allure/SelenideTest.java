@@ -34,7 +34,7 @@ public class SelenideTest {
         $(".header-search-input").submit();
 
         $(linkText("eroshenkoam/allure-example")).click(); // By.linkText - это селектор!
-        $(By.partialLinkText("POPA")).click(); //  By.partialLinkText  - поиск по частичному тексту.
+        $(By.partialLinkText("PAVEL")).click(); //  By.partialLinkText  - поиск по частичному тексту.
         $(withText("#76")).click();
     }
 

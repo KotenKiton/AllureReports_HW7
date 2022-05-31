@@ -14,7 +14,7 @@ import static io.qameta.allure.Allure.step;
 import static org.openqa.selenium.By.linkText;
 
 
-public class LambdaStepTest {
+public class AnnotatedStepTest {
 
     private static final String REPOSITORY = "eroshenkoam/allure-example";
     private static final int ISSUE_NUMBER = 68;
