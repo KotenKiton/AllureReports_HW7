@@ -1,11 +1,15 @@
 package qa.guru.allure;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.Allure;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+
+import java.nio.charset.StandardCharsets;
 
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
@@ -25,6 +29,7 @@ public class LambdaStepTest {
         Configuration.baseUrl = "https://github.com";
         Configuration.browserSize = "1920x1080";
     }
+    // Наличие API уменьшает количество кода которые можно переиспользовать в тестах
     // Алюр позволяет сделать тесты наглядыми для всей команды а тесты могут использоваться как документация.
     @Test
     public void testGithubIssue() {
@@ -48,6 +53,13 @@ public class LambdaStepTest {
         });
         step("Проверяем что существует Issue c номером " + ISSUE_NUMBER, () -> {
             $(withText("#76")).click();
+            // при использование лямбды аттач лучше делать как туту.
+            Allure.getLifecycle().addAttachment( // добавление исходника в ввиде снэпшота страницы.
+                    "Исходники страницы ",
+                    "text/html",
+                    "html",
+                    WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
+            );
         });
     }
 }
